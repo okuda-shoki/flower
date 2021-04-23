@@ -20,20 +20,22 @@ export default {
       let document=a[x]
 return{
   item:getRandomIntInclusive(),
-  document
+  word:document
 }
   },
   methods:{
     dec(){
       if(this.item>0){
         this.item--;
+        return this.item;
       }
-      return this.item
-    }
-  },
-  computed:{
-    word(){
-      
+      function add(){
+        this.item;
+        this.word=!this.word
+      }
+      return{
+        word:add()
+      }
     }
   }
 }
