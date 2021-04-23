@@ -14,12 +14,13 @@ export default {
     function getRandomIntInclusive() {
       return Math.floor(Math.random()*9)+2;
 }
-      var a=["嫌い","好き"];
-      var x;
+      let a=["嫌い","好き"];
+      let x;
       x=Math.floor(Math.random()*2); 
+      let document=a[x]
 return{
   item:getRandomIntInclusive(),
-  word:a[x],
+  document
 }
   },
   methods:{
@@ -27,6 +28,12 @@ return{
       if(this.item>0){
         this.item--;
       }
+      return this.item
+    }
+  },
+  computed:{
+    word(){
+      
     }
   }
 }
