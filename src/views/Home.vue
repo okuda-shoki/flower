@@ -1,16 +1,13 @@
 <template>
 <div class="container">
-  <p >花の枚数:{{item}}</p>
+  <p>花の枚数:{{item}}</p>
   <p v-if="show">現在の状況:{{word}}</p>
   <p v-else>結果:{{word}}</p>
   <button @click="dec()">花びらを減らす</button>
-
   </div>
-
 </template>
 
 <script>
-
 export default {
   data(){
     function getRandomIntInclusive() {
@@ -21,12 +18,11 @@ export default {
       x=Math.floor(Math.random()*2); 
       var document=a[x]
 return{
+  list:[],
   item:getRandomIntInclusive(),
   word:document,
   show:true,
-  list:[]
 }
-
   },
   methods:{
     dec(){
@@ -47,8 +43,8 @@ return{
         }
           return this.word
       }else if(this.item==0){
-      this.$router.go({
-              path: this.$router.currentRoute.path,
+        this.$router.go({
+          path: this.$router.currentRoute.path,
               force: true,
             });
             }
@@ -56,7 +52,9 @@ return{
     },
   
     mounted(){
-     localStorage.list="foo";
+      this.list.push(this.item);
+      this.list.push(this.word);
+      localStorage.list="foo";
     },
 }
   
@@ -65,6 +63,14 @@ return{
 <style scoped>
 .container{
   text-align: left;
+}
+
+button{
+  color: red;
+}
+
+button:hover{
+  color: blue;
 }
 
 </style>
